@@ -1,34 +1,27 @@
 import React, { useState, useEffect } from 'react'
+import { GifGridItem } from './GifGridItem';
+import { getGifs } from '../helpers/getGifs';
 
 export const GifGrid = ( { category } ) => {
 
-    const [counter, setCounter] = useState(0);
+    const [images, setImages] = useState([]);
 
     useEffect(() => {
-        getGifs();
+        getGifs(category)
+            .then(setImages);
     }, []);
 
-    const getGifs = async () => {
-        const URL = 'https://api.giphy.com/v1/gifs/search?q=Samurai+X&limit=5&api_key=xihgKvxIn5LiQz36dS5z6Fn3p3yXMPKM';
-        const resp = await fetch(URL);
-        const { data } = await resp.json();
-
-        const gifs = data.map( img => {
-            return {
-                id: img.id,
-                tittle: img.tittle,
-                url: img.images?.downsized_medium.url
-            }
-        });
-
-        console.log(gifs);
-        
-    }
 
     return (
-        <div>
-            <h3>{ counter }</h3>
-            <button onClick = { () => setCounter( counter + 1) }>1</button>
-        </div>
+        <>
+            <h3>{ category }</h3>
+            <div className='card-grid'>
+                    { images.map( (img) => (
+                        <GifGridItem key = {img.id} {...img}/>
+                    ))
+                    }
+                
+            </div>
+        </>
     )
 }
