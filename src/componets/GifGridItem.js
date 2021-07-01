@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const GifGridItem = ({id, tittle, url}) => {
+const GifGridItem = ({id, tittle, url}) => {
     
     //console.log(id, tittle, url);
     return (
@@ -10,3 +10,5 @@ export const GifGridItem = ({id, tittle, url}) => {
         </div>
     )
 }
+
+export default GifGridItem
