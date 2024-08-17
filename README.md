@@ -5,7 +5,7 @@ Alicacion web creada en el curso de React de Fernando Herrera
 
 # Resultado
 
-para ver el resultado de lo aprendido vistar:
+para ver el resultado de lo aprendido visitar:
 
 Netlify: [Netlify]( https://git-expert-jrps.netlify.app/)
 
